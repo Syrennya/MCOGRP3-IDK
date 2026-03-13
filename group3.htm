@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Pure | Holistic Cleansing</title>
+    <style>
+        /* General Styles */
+        @font-face {
+            font-family: 'Acier Bat';
+            src: url('acierbat.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'georgia', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff00; /* Deep brown background */
+            background-image: url('bubbles.png'); /* bubbles overlay */
+            background-repeat: no-repeat;
+            background-blend-mode: overlay;
+            background-size: cover; /* ensure it fills any viewport */
+            background-position: center center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            color: #000000;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: #ffffff98;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            margin-right: -100px;
+            margin-left: -100px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255, 165, 165, 0.5);
+        }
+
+        h1 { font-family: 'Acier Bat', 'Georgia', serif; font-size: 4.2rem; margin: 10px auto 5px; text-align: center; color: rgb(255, 255, 255); background: linear-gradient(to left, transparent, rgba(216, 216, 216, 0.5), transparent); padding: 10px; border-radius: 5px; display: inline-block; text-shadow: 0 0 15px rgba(0,0,0,0.6); }
+        .tagline { font-size: 0.9rem; font-style: italic; opacity: 0.8; margin: 10px auto 20px; border-bottom: 2px solid rgba(0, 0, 0, 0.144); padding-bottom: 15px; }
+
+        .product-title { font-family: 'Acier Bat', 'Georgia', serif; font-size: 4.2rem; margin-top: 10px ; margin-bottom: 10px; text-align: left; color: rgb(255, 255, 255); background: linear-gradient(to right, transparent, rgba(216, 216, 216, 0.5), transparent); padding: 10px; border-radius: 5px; }
+
+        .logo-main {
+    width: 259px;
+    height: 250px;
+    background-color: #ffffff;
+    border-radius: 100%;
+    margin: 20px auto;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-main img {
+    width: 100%;
+    height: 100%;
+    scale: 1.1;
+    border-radius: 100%;
+}
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .team-member { text-align: left; }
+        .team-member img {
+            width: 100%;
+            aspect-ratio: 1/1.2;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .team-member p { font-size: 0.75rem; margin-top: 8px; line-height: 1.2; }
+
+        /* Contact Section */
+        .contact-info {
+            text-align: left;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        .contact-item { display: flex; align-items: center; margin-bottom: 15px; opacity: 0.9; }
+        .contact-item span { margin-left: 15px; }
+
+        .btn-contact {
+            background-color: #d9d2c5;
+            color: #2806ec;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* Newsletter */
+        input[type="email"] {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            margin: 15px 0;
+            box-sizing: border-box;
+        }
+
+        .submit-btn {
+            background-color: #d9d2c5;
+            color: #2e1a0f;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Instagram card */
+        .instagram-card {
+            text-align: left;
+            padding: 18px 18px 14px;
+        }
+        .instagram-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .instagram-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #f58529, #dd2a7b, #515bd4);
+            display: grid;
+            place-items: center;
+            font-size: 1.25rem;
+            color: #fff;
+        }
+        .instagram-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 2px;
+        }
+        .instagram-subtitle {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        .instagram-meta {
+            padding: 12px 0 8px;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            margin-bottom: 14px;
+        }
+        .instagram-handle {
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-bottom: 6px;
+        }
+        .instagram-description {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        .instagram-follow-link {
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+        }
+        .instagram-follow-link .instagram-follow {
+            margin: 0;
+        }
+        .instagram-stats {
+            font-size: 0.75rem;
+            opacity: 0.7;
+            margin-bottom: 14px;
+            text-align: center;
+        }
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+        .instagram-grid img {
+            width: 100%;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Slider Styles */
+        .slider { position: relative; width: 100%; overflow: hidden; border-radius: 10px; }
+        .slider-container { display: flex; transition: transform 0.5s; }
+        .slider-container img { width: 100%; border-radius: 10px; flex-shrink: 0; }
+        .prev, .next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer; border-radius: 50%; z-index: 10; }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        /* Modal popup */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 1000;
+        }
+        .modal-overlay.visible { display: flex; }
+        .modal {
+            width: 100%;
+            max-width: 520px;
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 16px;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .modal-header {
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #222;
+        }
+        .modal-close {
+            background: transparent;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #333;
+        }
+        .modal-body {
+            padding: 16px;
+            overflow-y: auto;
+            max-height: calc(100vh - 160px);
+        }
+        .modal-body img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 14px;
+        }
+        .modal-body h2 {
+            margin: 0 0 10px;
+            font-size: 1.25rem;
+        }
+        .modal-body p {
+            margin: 0 0 12px;
+            line-height: 1.5;
+            color: rgba(0,0,0,0.75);
+        }
+        .modal-footer {
+            padding: 14px 16px;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            display: flex;
+            justify-content: flex-end;
+        }
+        .modal-footer button {
+            background: #d9d2c5;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 999px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+
+    <div class="card">
+        <h1>AURA PURE</h1>
+        <p class="tagline">"Cleanse. Refresh. Radiate."</p>
+        <div class="logo-main">
+    <img src="logo.png" alt="Aura Pure Logo">
+</div>
+    </div>
+
+    <div class="card">
+        <p class="product-title">FACIAL CLEANSER</p>
+        <div class="slider">
+            <button class="prev">&lt;</button>
+            <div class="slider-container">
+                <img src="pro1.jpg" alt="Product 1">
+                <img src="pro2.jpg" alt="Product 2">
+                <img src="pro3.jpg" alt="Product 3">
+            </div>
+            <button class="next">&gt;</button>
+        </div>
+        <p id="slider-tagline" style="font-style: italic; margin-top: 10px;">"Ritual on the Go"</p>
+    </div>
+
+    <div class="card">
+        <p style="margin-bottom: 20px;">Meet Our Dedicated Team</p>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="Rhenya.jpg" alt="Rhenya">
+                <p>Rhenya Gianna Tan Goguanco</p>
+            </div>
+            <div class="team-member">
+                <img src="Aika.jpg" alt="Aika">
+                <p>Aika Nakamura</p>
+            </div>
+            <div class="team-member">
+                <img src="JP.jpg" alt="John">
+                <p>John Paul Dela Torre</p>
+            </div>
+            <div class="team-member">
+                <img src="Aston.jpg" alt="Aston">
+                <p>Aston Reece Sin</p>
+            </div>
+             <div class="team-member">
+                <img src="Jean.jpg" alt="Jean">
+                <p>Jean Castro</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <p>Contact Us</p>
+        <div class="logo-main" style="width: 180px; height: 180px; margin: 10px auto;">
+             <img src="logo.png" alt="Logo Small">
+        </div>
+        <div class="contact-info">
+            <div class="contact-item">📧 <span>aurapure@website.com</span></div>
+            <div class="contact-item">📞 <span>666-444-555</span></div>
+            <div class="contact-item">📍 <span>500 Poblacion Makati City</span></div>
+        </div>
+        <button class="btn-contact">Save as Contact</button>
+    </div>
+
+    <div class="card instagram-card">
+        <div class="instagram-header">
+            <div class="instagram-icon">📷</div>
+            <div>
+                <div class="instagram-title">Find Us On Instagram</div>
+                <div class="instagram-subtitle">Take a Look</div>
+            </div>
+        </div>
+
+        <div class="instagram-line">(@aurapure31) • Instagram photos and videos</div>
+
+        <a href="https://www.instagram.com/aurapure31/" target="_blank" class="instagram-follow-link">
+            <button class="instagram-follow">Follow</button>
+        </a>
+
+        <div class="instagram-account">
+            <div class="instagram-account-avatar">
+                <img src="logo.png" alt="Aura Pure profile">
+            </div>
+            <div class="instagram-account-meta">
+                <div class="instagram-account-name">AURAPURE</div>
+                <div class="instagram-account-stats">100k followers &bull; 240 posts</div>
+            </div>
+        </div>
+
+        <div class="instagram-grid">
+            <img src="pro1.jpg" alt="Instagram post 1">
+            <img src="pro2.jpg" alt="Instagram post 2">
+            <img src="pro3.jpg" alt="Instagram post 3">
+        </div>
+    </div>
+
+<!-- Modal popup for product details -->
+<div class="modal-overlay" id="productModal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-header">
+            <div id="modalTitle">"Sustainable Glow"</div>
+            <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+        </div>
+        <div class="modal-body">
+            <img id="modalImage" src="pro1.jpg" alt="Product detail image">
+            <h2 id="modalHeading">Sustainable Glow</h2>
+            <p id="modalDescription">Pure for you, pure for the planet. These ultra-soft, compostable wipes deliver a burst of botanical energy to tired skin. We believe in the power of a holistic approach, which is why our wipes are free from synthetic fragrances—leaving behind only the natural, crisp scent of green tea and the feeling of a revitalized spirit.</p>
+            <p style="font-size: 0.85rem; opacity: 0.7; margin: 0;">📍 PHILIPPINES</p>
+        </div>
+        <div class="modal-footer">
+            <button id="modalBuy">BUY NOW</button>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<script>
+// Background is fixed via CSS (background-attachment: fixed) and covers the
+// viewport at any resolution. We keep a clamped parallax shift so the
+// background moves subtly while scrolling without ever repeating.
+window.addEventListener('scroll', () => {
+    const maxShift = 1000; // bigger means more noticeable scroll motion
+    const shift = Math.max(-maxShift, Math.min(maxShift, window.scrollY * 0.02));
+    document.body.style.backgroundPosition = `center calc(50% + ${shift}%)`;
+});
+
+// Image slider functionality
+let currentIndex = 0;
+const sliderContainer = document.querySelector('.slider-container');
+const images = document.querySelectorAll('.slider-container img');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+const sliderTagline = document.getElementById('slider-tagline');
+
+const taglines = [
+    '"Ritual on the Go"',
+    '"Pure Cleansing Power"',
+    '"Holistic Skin Care"'
+];
+
+function updateSlider() {
+    sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+    if (sliderTagline) {
+        sliderTagline.textContent = taglines[currentIndex] || '"Ritual on the Go"';
+    }
+}
+
+prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+    updateSlider();
+});
+
+nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+    updateSlider();
+});
+
+// Initialize slider and tagline on load
+updateSlider();
+
+// Modal logic for product detail popups
+const productModal = document.getElementById('productModal');
+const modalClose = document.getElementById('modalClose');
+const modalImage = document.getElementById('modalImage');
+const modalHeading = document.getElementById('modalHeading');
+const modalDescription = document.getElementById('modalDescription');
+const modalBuy = document.getElementById('modalBuy');
+
+const productData = [
+    {
+        title: 'Sustainable Glow',
+        tagline: 'Ritual on the Go',
+        image: 'pro1.jpg',
+        description: 'Pure for you, pure for the planet. These ultra-soft, compostable wipes deliver a burst of botanical energy to tired skin. We believe in the power of a holistic approach, which is why our wipes are free from synthetic fragrances—leaving behind only the natural, crisp scent of green tea and the feeling of a revitalized spirit.',
+        location: 'PHILIPPINES'
+    },
+    {
+        title: 'Pure Cleansing Power',
+        tagline: 'Pure Cleansing Power',
+        image: 'pro2.jpg',
+        description: 'A gentle yet deep cleanse that removes impurities without stripping your skin. Infused with natural botanicals to soothe and balance, this formula is perfect for daily use and leaves skin feeling fresh and renewed.',
+        location: 'PHILIPPINES'
+    },
+    {
+        title: 'Holistic Skin Care',
+        tagline: 'Holistic Skin Care',
+        image: 'pro3.jpg',
+        description: 'Nourish your skin with a holistic blend of antioxidants and vitamins. Designed to support the natural skin barrier, it helps reduce redness, hydrate deeply, and restore your skin’s natural glow.',
+        location: 'PHILIPPINES'
+    }
+];
+
+function openProductModal(index) {
+    const data = productData[index] || productData[0];
+    modalHeading.textContent = data.title;
+    modalImage.src = data.image;
+    modalImage.alt = data.title;
+    modalDescription.textContent = data.description;
+    productModal.classList.add('visible');
+}
+
+function closeProductModal() {
+    productModal.classList.remove('visible');
+}
+
+images.forEach((img, idx) => {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', () => {
+        // Open modal for the clicked product
+        openProductModal(idx);
+    });
+});
+
+modalClose.addEventListener('click', closeProductModal);
+productModal.addEventListener('click', (event) => {
+    if (event.target === productModal) closeProductModal();
+});
+
+modalBuy.addEventListener('click', () => {
+    window.alert('Buy now flow would go here.');
+});
+</script>
+
+</body>
+</html>
